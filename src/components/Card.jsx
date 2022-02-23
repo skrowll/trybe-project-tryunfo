@@ -5,14 +5,14 @@ class Card extends React.Component {
   render() {
     const {
       cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
+      // cardDescription,
+      // cardAttr1,
+      // cardAttr2,
+      // cardAttr3,
+      // cardImage,
+      // cardRare,
+      // cardTrunfo,
+      // hasTrunfo,
     } = this.props;
 
     return (
@@ -25,14 +25,14 @@ class Card extends React.Component {
 
 Card.propTypes = {
   cardName: PropTypes.string.isRequired,
-  cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
-  cardImage: PropTypes.string.isRequired,
-  cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.bool.isRequired,
-  hasTrunfo: PropTypes.bool.isRequired,
+  // cardDescription: PropTypes.string.isRequired,
+  // cardAttr1: PropTypes.string.isRequired,
+  // cardAttr2: PropTypes.string.isRequired,
+  // cardAttr3: PropTypes.string.isRequired,
+  // cardImage: PropTypes.string.isRequired,
+  // cardRare: PropTypes.string.isRequired,
+  // cardTrunfo: PropTypes.bool.isRequired,
+  // hasTrunfo: PropTypes.bool.isRequired,
 };
 
 export default Card;
