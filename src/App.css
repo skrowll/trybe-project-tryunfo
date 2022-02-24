@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 0px 10%;
+}
+
+.preview {
+  width: 50%;
+  padding: 0px 10%;
+  background: linear-gradient(135deg, rgb(0, 50, 0), rgb(0, 150, 0));
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+#name-label {
+  display: flex;
+  flex-direction: column;
+}
+
+#description-label {
+  display: flex;
+  flex-direction: column;
+}
+
+#image-label {
+  display: flex;
+}
+
+#image-input {
+  width: 100%;
+}
+
+#rare-label {
+  display: flex;
+  flex-direction: column;
+}
+
+#save-button {
+  border: none;
+  padding: 5px;
+  width: 50px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+}
