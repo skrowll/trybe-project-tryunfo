@@ -20,6 +20,7 @@ class App extends React.Component {
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
   onInputChange(event) {
@@ -29,11 +30,49 @@ class App extends React.Component {
       : event.target.value;
     this.setState({
       [name]: value,
-    });
-    console.log(this.state);
+    }, this.validate);
   }
 
   onSaveButtonClick() { }
+
+  validate() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+    } = this.state;
+    const maxAttrPtsSum = 210;
+    const maxAttrPts = 90;
+    const minAttrPts = 0;
+    const isAttr1OnRange = !!(cardAttr1 <= maxAttrPts && cardAttr1 >= minAttrPts);
+    const isAttr2OnRange = !!(cardAttr2 <= maxAttrPts && cardAttr2 >= minAttrPts);
+    const isAttr3OnRange = !!(cardAttr3 <= maxAttrPts && cardAttr3 >= minAttrPts);
+    const ptsAttr1 = parseInt(cardAttr1, 10);
+    const ptsAttr2 = parseInt(cardAttr2, 10);
+    const ptsAttr3 = parseInt(cardAttr3, 10);
+    const isAttrsOnRange = (ptsAttr1 + ptsAttr2 + ptsAttr3 <= maxAttrPtsSum);
+    const fields = [cardName, cardImage, cardDescription];
+    const emptyFields = fields.every((field) => field !== '');
+
+    console.log(isAttrsOnRange);
+
+    const isValid = (
+      emptyFields
+      && isAttr1OnRange
+      && isAttr2OnRange
+      && isAttr3OnRange
+      && isAttrsOnRange
+    );
+
+    if (isValid) {
+      this.setState({ isSaveButtonDisabled: false });
+    } else {
+      this.setState({ isSaveButtonDisabled: true });
+    }
+  }
 
   render() {
     const { state } = this;
