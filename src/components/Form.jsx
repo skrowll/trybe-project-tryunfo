@@ -22,23 +22,23 @@ class Forms extends React.Component {
       <div className="forms">
         <h3>Adicionar nova carta</h3>
         <form>
-          <label htmlFor="name" id="name-label">
+          <label htmlFor="name" className="name-label">
             Nome
             <input
               type="text"
-              id="name-input"
+              className="name-input"
               name="cardName"
               data-testid="name-input"
               value={ cardName }
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="description" id="description-label">
+          <label htmlFor="description" className="description-label">
             Descrição
             <textarea
               type="textarea"
-              maxLength="200"
-              id="description-input"
+              maxLength="100"
+              className="description-input"
               name="cardDescription"
               data-testid="description-input"
               value={ cardDescription }
