@@ -19,7 +19,7 @@ class Forms extends React.Component {
     } = this.props;
 
     return (
-      <div className="forms">
+      <div>
         <h3 className="title">Adicionar nova carta</h3>
         <form>
           <label htmlFor="name" className="name-label">

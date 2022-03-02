@@ -49,7 +49,8 @@ class App extends React.Component {
     };
 
     this.setState((prevState) => ({
-      deck: [...prevState.deck, newCard] }));
+      deck: [...prevState.deck, newCard],
+    }));
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -115,32 +116,56 @@ class App extends React.Component {
 
   render() {
     const { state } = this;
+    const { deck } = this.state;
     return (
-      <div className="container">
-        <Form
-          cardName={ state.cardName }
-          cardDescription={ state.cardDescription }
-          cardAttr1={ state.cardAttr1 }
-          cardAttr2={ state.cardAttr2 }
-          cardAttr3={ state.cardAttr3 }
-          cardImage={ state.cardImage }
-          cardRare={ state.cardRare }
-          cardTrunfo={ state.cardTrunfo }
-          hasTrunfo={ state.hasTrunfo }
-          isSaveButtonDisabled={ state.isSaveButtonDisabled }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
-        />
-        <Card
-          cardName={ state.cardName }
-          cardDescription={ state.cardDescription }
-          cardAttr1={ state.cardAttr1 }
-          cardAttr2={ state.cardAttr2 }
-          cardAttr3={ state.cardAttr3 }
-          cardImage={ state.cardImage }
-          cardRare={ state.cardRare }
-          cardTrunfo={ state.cardTrunfo }
-        />
+      <div>
+        <div className="main">
+          <div className="form">
+            <Form
+              cardName={ state.cardName }
+              cardDescription={ state.cardDescription }
+              cardAttr1={ state.cardAttr1 }
+              cardAttr2={ state.cardAttr2 }
+              cardAttr3={ state.cardAttr3 }
+              cardImage={ state.cardImage }
+              cardRare={ state.cardRare }
+              cardTrunfo={ state.cardTrunfo }
+              hasTrunfo={ state.hasTrunfo }
+              isSaveButtonDisabled={ state.isSaveButtonDisabled }
+              onInputChange={ this.onInputChange }
+              onSaveButtonClick={ this.onSaveButtonClick }
+            />
+          </div>
+          <div className="preview">
+            <Card
+              cardName={ state.cardName }
+              cardDescription={ state.cardDescription }
+              cardAttr1={ state.cardAttr1 }
+              cardAttr2={ state.cardAttr2 }
+              cardAttr3={ state.cardAttr3 }
+              cardImage={ state.cardImage }
+              cardRare={ state.cardRare }
+              cardTrunfo={ state.cardTrunfo }
+            />
+          </div>
+        </div>
+        <div className="deck">
+          {state.deck.length > 0
+            ? (deck.map((card) => (
+              <Card
+                key={ card.cardName }
+                cardName={ card.cardName }
+                cardDescription={ card.cardDescription }
+                cardAttr1={ card.cardAttr1 }
+                cardAttr2={ card.cardAttr2 }
+                cardAttr3={ card.cardAttr3 }
+                cardImage={ card.cardImage }
+                cardRare={ card.cardRare }
+                cardTrunfo={ card.cardTrunfo }
+              />
+            )))
+            : 'Deck vazio!'}
+        </div>
       </div>
     );
   }
